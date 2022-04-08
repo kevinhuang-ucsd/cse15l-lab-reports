@@ -29,5 +29,23 @@ Try figuring out what those commands mean on your own. You'll use them later in 
 ### Step 4: Moving Files with `scp`
 We can use the command `scp` to copy files from your local machine to the remote computer.
 
-1. First, create a file on your local machine. Make sure you're doing this on your local machine. You can use the command `touch` to create an empty file in your current directory: 
+1. First, create a file on your local machine. Make sure you're doing this on your local machine (You can use `exit` to log out from your ucsd account). You can use the command `touch` to create an empty file in your current directory: ![createHello](./lab-report-1-images/createHello.png)
+
+2. Then, run this command in your current directory: `scp hello.txt cs15lsp22abc@ieng6.ucsd.edu:~/`. Type your password when prompted.
+
+3. Then, log in to ieng6 again, and use the command `ls`, and you should see your file listed: ![copyFile](./lab-report-1-images//copyFile.png)
+
+### Step 5: Setting an SSH key
+Next, we'll set up an SSH key that helps us log in. Basically, you don't have to type your password when log in to ieng6.
+
+1. On your computer, run this command: `ssh-keygen`. You will see something like this: ![ssh-keygen](./lab-report-1-images/ssh-keygen.png) Don't enter any paraphrase at this point. Just press enter, and you'll see: ![ssh-save](./lab-report-1-images/ssh-save.png)
+
+2. If you're on Windows, follow an extra step here: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#user-key-generation
+
+3. Up till this point, we have created the private key in id_rsa and the public key in id_rsa.pub. Now, copy your public key to the .ssh directory of your user account of ieng6. Log in to server (`ssh cs15lsp22abc@ieng6.ucsd.edu`), create a directory called .ssh (`mkdir .ssh`), and log out (`exit`). In your local machine, copy your ssh public key to the server (`scp /Users/<user-name>/.ssh/id_rsa.pub cs15lsp22abc@ieng6.ucsd.edu:~/.ssh/authorized_keys`). Now, try logging into ieng6 using `ssh` and copy using `scp`. You don't need to type your passport anymore. ![noPassword](./lab-report-1-images/noPassword.png)
+
+### Step 6: Optimizing Remote Running
+Once you make edits to a file on your local machine, you'll often need to copy the file to the remote server and run it. You can combine different commands together in one line to optimize remote running. 
+
+In the following command, after making edits to a WhereAmI.java, I copied it to the server using `scp`, logged in to my account using `ssh`, and ran two java commands. ![optimization](./lab-report-1-images//optimization.png) Then, I saw the content inside WhereAmI.java being printed: ![optResult](./lab-report-1-images//optResult.png) (Note: you can use `;` to separate commands and write commands in quotes at the end of an `ssh` command to run them on the server.)
 
