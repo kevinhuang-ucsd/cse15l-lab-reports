@@ -10,10 +10,13 @@ This is the link to google: [Link](http://google.com)
 * Unordered list 1
 * Unordered list 2
 * Unordered list 3
+
 1. Ordered list 1
 2. Ordered list 2
 3. Ordered list 3
+
 ---
+
 `Inline code` with backticks
 ```
 # code block
