@@ -34,7 +34,6 @@ Command: `scp -r markdown-parse ieng6:~/`
 ![test-account](./lab-report-3-images/test-account.png)
 
 - Show (like in the last step of the first lab) combining `scp`, `;`, and `ssh` to copy the whole directory and run the tests in one line.
-Command: `scp -r markdown-parser ieng6:~/; ssh ieng6 "cd markdown-parser/; javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java; java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest"`
-![combined-commands](./lab-report-3-images/combined-commands.png)
-Result:
-![combined-result](./lab-report-3-images//combined-result.png)
+Command: `scp -r markdown-parser ieng6:~/; ssh ieng6 "cd markdown-parser/; /software/CSE/oracle-java-17/jdk-17.0.1/bin/javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java; /software/CSE/oracle-java-17/jdk-17.0.1/bin/java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest"`
+![combined0](./lab-report-3-images/combined0.png)
+![combined-result](./lab-report-3-images//combined1.png)
