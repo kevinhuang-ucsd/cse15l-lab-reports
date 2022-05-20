@@ -29,4 +29,4 @@
 
 - Yes. I could add two if conditions: If there's a backslash before an open bracket, ignore this open bracket. If there's a backslash before a close bracket, ignore this close bracket.
 
-- No. I believe in order to deal with the index out of bounds error, I'll have to change the while loop somehow to prevent going out of bounds, which is defintely longer than 10 lines.
+- Yes. When adding a new link to the ArrayList, the command was `toReturn.add(markdown.substring(openParen + 1, closeParen));`, which causes index out of bounds error when the two arguments are invalid. Therefore, I could add an if statement to make sure that the two arguments are within the length of the markdown string before adding. Otherwise, don't add.
